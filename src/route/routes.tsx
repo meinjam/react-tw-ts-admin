@@ -1,36 +1,32 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home.Page';
-import Login from '../pages/Login.Page';
 import PublicRoute from './PublicRoute';
 import PrivateRoutes from './PrivateRoutes';
-import Register from '../pages/Register.Page';
 import LoginRegister from '../components/layouts/LoginRegister.Layout';
 import NotFound from '../pages/NotFound.Page';
+import { LoginSignupRoutes } from '.';
 
 const MainRoute = () => {
   return (
     <Routes>
       <Route path='*' element={<NotFound />} />
 
+      {/* Login Register routes */}
       <Route element={<PublicRoute />}>
-        <Route
-          path='/login'
-          element={
-            <LoginRegister>
-              <Login />
-            </LoginRegister>
-          }
-        />
-        <Route
-          path='/register'
-          element={
-            <LoginRegister>
-              <Register />
-            </LoginRegister>
-          }
-        />
+        {LoginSignupRoutes.map((route, i) => (
+          <Route
+            key={i}
+            path={route.path}
+            element={
+              <LoginRegister>
+                <route.component />
+              </LoginRegister>
+            }
+          />
+        ))}
       </Route>
 
+      {/* Private Routes */}
       <Route element={<PrivateRoutes />}>
         <Route path='/' element={<Home />} />
       </Route>

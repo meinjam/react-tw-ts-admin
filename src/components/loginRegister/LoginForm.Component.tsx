@@ -1,12 +1,27 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 interface LoginDataType {
   email: string;
   password: string;
 }
 
+const user = {
+  email: 'john@gmail.com',
+  name: 'John Doe',
+  id: 1,
+  role: {
+    id: 2,
+    role_id: 1,
+    role_name: 'super_admin',
+  },
+};
+
+const token = 'V3KUXmSFQUSCpvK1dHu3mafZ9BIOkmGrs1dGQ3zW45ne9FaolT';
+
 const LoginForm = () => {
+  const { loggedIn, afterLoggedIn } = useAuth();
   const [data, setData] = useState<LoginDataType>({
     email: '',
     password: '',
@@ -15,7 +30,9 @@ const LoginForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(data);
+    // console.log(data);
+    loggedIn(token, user);
+    afterLoggedIn(token, user);
   };
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
