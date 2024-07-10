@@ -1,15 +1,11 @@
+import FullScreenLoading from './components/Loading/FullScreenLoading.Component';
 import useAuthCheck from './hooks/useAuthCheck';
+import MainRoute from './route';
 
 const App = () => {
   const authChecked = useAuthCheck();
 
-  return !authChecked ? (
-    'Loading.....'
-  ) : (
-    <div className='bg-slate-500 container'>
-      <h1>This is App</h1>
-    </div>
-  );
+  return !authChecked ? <FullScreenLoading /> : <MainRoute />;
 };
 
 export default App;
