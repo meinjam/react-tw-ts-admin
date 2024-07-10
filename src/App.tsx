@@ -1,6 +1,12 @@
+import useAuthCheck from './hooks/useAuthCheck';
+
 const App = () => {
-  return (
-    <div>
+  const authChecked = useAuthCheck();
+
+  return !authChecked ? (
+    'Loading.....'
+  ) : (
+    <div className='bg-slate-500 container'>
       <h1>This is App</h1>
     </div>
   );
