@@ -9,6 +9,14 @@ export default {
           DEFAULT: '1rem',
         },
       },
+      colors: {
+        primary: '#1B84FF',
+        'p-dark': '#0d0e12',
+        'p-white': '#f5f5f5',
+      },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [],

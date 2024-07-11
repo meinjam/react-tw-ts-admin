@@ -5,6 +5,7 @@ import PrivateRoutes from './PrivateRoutes';
 import LoginRegister from '../components/layouts/LoginRegister.Layout';
 import NotFound from '../pages/NotFound.Page';
 import { LoginSignupRoutes } from '.';
+import Admin from '@/components/layouts/Admin.Layout';
 
 const MainRoute = () => {
   return (
@@ -28,7 +29,14 @@ const MainRoute = () => {
 
       {/* Private Routes */}
       <Route element={<PrivateRoutes />}>
-        <Route path='/' element={<Home />} />
+        <Route
+          path='/'
+          element={
+            <Admin>
+              <Home />
+            </Admin>
+          }
+        />
       </Route>
     </Routes>
   );
