@@ -4,7 +4,7 @@ import PublicRoute from './PublicRoute';
 import PrivateRoutes from './PrivateRoutes';
 import LoginRegister from '../components/layouts/LoginRegister.Layout';
 import NotFound from '../pages/NotFound.Page';
-import { LoginSignupRoutes } from '.';
+import { LoginRegisterRoutes } from '@/route/index';
 import Admin from '@/components/layouts/Admin.Layout';
 import { useAuth } from '@/context/AuthContext';
 import NotFoundComponent from '@/components/not-found/NotFound.Component';
@@ -18,16 +18,8 @@ const MainRoute = () => {
 
       {/* Login Register routes */}
       <Route element={<PublicRoute />}>
-        {LoginSignupRoutes.map((route, i) => (
-          <Route
-            key={i}
-            path={route.path}
-            element={
-              <LoginRegister>
-                <route.component />
-              </LoginRegister>
-            }
-          />
+        {LoginRegisterRoutes.map((route, i) => (
+          <Route key={i} path={route.path} element={<LoginRegister>{route.component}</LoginRegister>} />
         ))}
       </Route>
 
