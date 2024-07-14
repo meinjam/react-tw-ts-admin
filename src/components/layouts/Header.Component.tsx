@@ -2,10 +2,25 @@ import { IoSearchSharp } from 'react-icons/io5';
 import { GoBell } from 'react-icons/go';
 import { BiMessageRoundedDots } from 'react-icons/bi';
 import { FaChevronDown } from 'react-icons/fa6';
+import { useTheme } from '@/context/ThemeContext';
 
 const Header = () => {
+  const { currentTheme, selectCurrentTheme } = useTheme();
+
+  const handleTheme = () => {
+    if (currentTheme === 'dark') {
+      selectCurrentTheme('light');
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      selectCurrentTheme('dark');
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
+  };
+
   return (
-    <header className='sticky top-0 z-999 flex w-full bg-white drop-shadow'>
+    <header className='sticky top-0 z-999 flex w-full bg-white dark:bg-p-dark drop-shadow duration-300'>
       <div className='flex flex-grow items-center justify-between px-4 py-4 md:px-6 2xl:px-11'>
         <div className='border relative flex items-center h-12 rounded-lg bg-white overflow-hidden'>
           <div className='grid place-items-center h-full w-12 text-gray-300'>
@@ -19,12 +34,13 @@ const Header = () => {
           />
         </div>
 
-        <div className='flex items-center gap-6 text-gray-600'>
+        <div className='flex items-center gap-6 text-gray-600 dark:text-p-white'>
           <div className='flex items-center gap-3'>
-            <div className='bg-[#f1f4f9] p-2 rounded-full cursor-pointer'>
+            <button onClick={handleTheme}>theme</button>
+            <div className='bg-[#f1f4f9] dark:bg-[#38393e] p-2 rounded-full cursor-pointer'>
               <GoBell className='size-5' />
             </div>
-            <div className='bg-[#f1f4f9] p-2 rounded-full cursor-pointer'>
+            <div className='bg-[#f1f4f9] dark:bg-[#38393e] p-2 rounded-full cursor-pointer'>
               <BiMessageRoundedDots className='size-5' />
             </div>
           </div>
