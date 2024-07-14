@@ -3,6 +3,7 @@ import { GoBell } from 'react-icons/go';
 import { BiMessageRoundedDots } from 'react-icons/bi';
 import { FaChevronDown } from 'react-icons/fa6';
 import { useTheme } from '@/context/ThemeContext';
+import { Button } from '../ui/button';
 
 const Header = () => {
   const { currentTheme, selectCurrentTheme } = useTheme();
@@ -36,7 +37,7 @@ const Header = () => {
 
         <div className='flex items-center gap-6 text-gray-600 dark:text-p-white'>
           <div className='flex items-center gap-3'>
-            <button onClick={handleTheme}>theme</button>
+            <Button onClick={handleTheme}>theme</Button>
             <div className='bg-[#f1f4f9] dark:bg-[#38393e] p-2 rounded-full cursor-pointer'>
               <GoBell className='size-5' />
             </div>

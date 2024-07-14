@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -8,7 +8,7 @@ import '@/assets/scss/style.scss';
 import { ThemeProvider } from './context/ThemeContext.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  <StrictMode>
     <Router basename='/'>
       <ThemeProvider>
         <AuthProvider>
@@ -16,5 +16,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </AuthProvider>
       </ThemeProvider>
     </Router>
-  </React.StrictMode>
+  </StrictMode>
 );

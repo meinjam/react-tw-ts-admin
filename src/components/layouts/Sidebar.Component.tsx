@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <aside className='text-p-white absolute left-0 top-0 z-9999 flex h-screen w-72 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 -translate-x-full'>
       <div className='py-5 px-8'>
-        <Link to='/' className='text-3xl text-center block'>
+        <Link to='/' className='text-3xl text-center block text-white'>
           Admin Panel
         </Link>
       </div>
