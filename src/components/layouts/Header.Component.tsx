@@ -1,5 +1,3 @@
-import { GoBell } from 'react-icons/go';
-import { BiMessageRoundedDots } from 'react-icons/bi';
 import { FaChevronDown } from 'react-icons/fa6';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import ThemeSwitch from '@/components/theme/ThemeSwitch.Component';
