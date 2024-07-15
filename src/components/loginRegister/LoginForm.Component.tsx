@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '@/context/AuthContext';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 interface LoginDataType {
   email: string;
@@ -48,46 +50,43 @@ const LoginForm = () => {
     <>
       <form className='space-y-4' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='email' className='block text-sm font-medium text-gray-700'>
+          <label htmlFor='email' className='block text-sm font-medium'>
             Email
           </label>
-          <input
+          <Input
             value={data.email}
             onChange={handleInput}
             type='text'
             id='email'
             name='email'
             placeholder='enter your email'
-            className='mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'
+            className='mt-1 p-2'
           />
         </div>
         <div>
-          <label htmlFor='password' className='block text-sm font-medium text-gray-700'>
+          <label htmlFor='password' className='block text-sm font-medium'>
             Password
           </label>
-          <input
+          <Input
             value={data.password}
             onChange={handleInput}
             type='password'
             id='password'
             name='password'
             placeholder='enter your password'
-            className='mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'
+            className='mt-1 p-2'
           />
         </div>
         <div>
-          <button
-            type='submit'
-            className='w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300'
-          >
+          <Button type='submit' className='w-full'>
             Sign In
-          </button>
+          </Button>
         </div>
       </form>
-      <div className='mt-4 text-sm text-gray-600 text-center'>
+      <div className='mt-4 text-sm text-center'>
         <p>
           Don't have an account?{' '}
-          <Link to='/register' className='text-black hover:underline'>
+          <Link to='/register' className='hover:underline'>
             Register here
           </Link>
         </p>
