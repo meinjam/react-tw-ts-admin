@@ -1,62 +1,50 @@
-import { IoSearchSharp } from 'react-icons/io5';
 import { GoBell } from 'react-icons/go';
 import { BiMessageRoundedDots } from 'react-icons/bi';
 import { FaChevronDown } from 'react-icons/fa6';
-import { useTheme } from '@/context/ThemeContext';
-import { Button } from '../ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import ThemeSwitch from '@/components/theme/ThemeSwitch.Component';
+import Search from '@/components/theme/Search.Component';
 
 const Header = () => {
-  const { currentTheme, selectCurrentTheme } = useTheme();
-
-  const handleTheme = () => {
-    if (currentTheme === 'dark') {
-      selectCurrentTheme('light');
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-    } else {
-      selectCurrentTheme('dark');
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    }
-  };
-
   return (
-    <header className='sticky top-0 z-999 flex w-full duration-300 border-b bg-background'>
+    <header className='sticky top-0 z-999 flex w-full border-b bg-background'>
       <div className='flex flex-grow items-center justify-between px-4 py-4 md:px-6 2xl:px-11'>
-        <div className='border relative flex items-center h-12 rounded-lg bg-white overflow-hidden'>
-          <div className='grid place-items-center h-full w-12 text-gray-300'>
-            <IoSearchSharp className='size-6' />
-          </div>
-          <input
-            className='outline-none text-sm text-gray-700 pr-2'
-            type='text'
-            id='search'
-            placeholder='Search something..'
-          />
-        </div>
+        <Search />
 
         <div className='flex items-center gap-6 text-gray-600 dark:text-p-white'>
           <div className='flex items-center gap-3'>
-            <Button onClick={handleTheme}>theme</Button>
-            <div className='bg-[#f1f4f9] dark:bg-[#38393e] p-2 rounded-full cursor-pointer'>
-              <GoBell className='size-5' />
+            <div className='mr-5'>
+              <ThemeSwitch />
             </div>
-            <div className='bg-[#f1f4f9] dark:bg-[#38393e] p-2 rounded-full cursor-pointer'>
+            {/* <div className='bg-[#f1f4f9] p-2 rounded-full cursor-pointer'>
+              <GoBell className='size-5' />
+            </div> */}
+            {/* <div className='bg-[#f1f4f9] p-2 rounded-full cursor-pointer'>
               <BiMessageRoundedDots className='size-5' />
+            </div> */}
+            <div className='cursor-pointer relative'>
+              <NotifySvg />
+              <div className='absolute -top-1 right-0'>
+                <span className='relative flex h-3 w-3'>
+                  <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75'></span>
+                  <span className='relative inline-flex rounded-full h-3 w-3 bg-red-500'></span>
+                </span>
+              </div>
             </div>
           </div>
-          <div className='cursor-pointer flex items-center gap-3'>
-            <div>
-              <h5 className='text-sm font-normal'>John Doe</h5>
-              <p className='text-xs font-light'>UX Designer</p>
-            </div>
-            <div className='flex items-center gap-3'>
-              <img
-                src='https://react-demo.tailadmin.com/assets/user-01-b007ff3f.png'
-                alt=''
-                className='size-11 rounded-full block'
-              />
-              <FaChevronDown className='size-4' />
+          <div className='cursor-pointer flex items-center gap-5'>
+            <Avatar className='size-12'>
+              <AvatarImage src='https://react-demo.tailadmin.com/assets/user-01-b007ff3f.png' />
+              <AvatarFallback>JD</AvatarFallback>
+            </Avatar>
+            <div className='flex items-center gap-6'>
+              <div className='text-foreground'>
+                <h5 className='text-sm font-normal'>John Doe</h5>
+                <p className='text-xs font-light'>UX Designer</p>
+              </div>
+              <div className='rounded-full border p-1'>
+                <FaChevronDown className='size-3' />
+              </div>
             </div>
           </div>
         </div>
@@ -66,3 +54,17 @@ const Header = () => {
 };
 
 export default Header;
+
+const NotifySvg = () => {
+  return (
+    <svg width={24} height={26} viewBox='0 0 24 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path
+        fillRule='evenodd'
+        clipRule='evenodd'
+        d='M10.0277 0C7.73472 0 5.80843 1.72411 5.55522 4.00306L4.5 13.5H1.5C0.671573 13.5 0 14.1716 0 15V16.5C0 17.3284 0.671573 18 1.5 18H22.5C23.3284 18 24 17.3284 24 16.5V15C24 14.1716 23.3284 13.5 22.5 13.5H19.5L18.4448 4.00306C18.1916 1.72411 16.2653 0 13.9723 0H10.0277Z'
+        fill='#4880FF'
+      />
+      <rect opacity='0.3' x={9} y='19.5' width={6} height={6} rx='2.25' fill='#FF0000' />
+    </svg>
+  );
+};

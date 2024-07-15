@@ -35,7 +35,7 @@
   .dark {
     --background: 217.78deg 25.71% 20.59%;
     --foreground: 0 0% 100%;
-    --card: 222.2 84% 4.9%;
+    --card: 217.78deg 25.71% 20.59%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
@@ -68,6 +68,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Nunito Sans', sans-serif;
   }
 
   .sidebar-link {

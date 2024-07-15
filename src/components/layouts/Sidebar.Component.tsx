@@ -17,8 +17,8 @@ const Sidebar = () => {
   return (
     <aside className='absolute left-0 top-0 z-9999 flex h-screen w-72 flex-col overflow-y-hidden ease-linear lg:static lg:translate-x-0 -translate-x-full border-r-2 bg-background'>
       <div className='py-5 px-8'>
-        <Link to='/' className='text-3xl text-center block'>
-          Admin Panel
+        <Link to='/' className='text-3xl text-center block font-extrabold'>
+          Dash<span className='text-primary'>Stack</span>
         </Link>
       </div>
       <div className='no-scrollbar flex flex-col overflow-y-auto ease-linear'>
