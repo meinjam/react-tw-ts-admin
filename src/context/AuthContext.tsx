@@ -35,7 +35,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setToken(undefined);
     setUser(undefined);
     localStorage.removeItem('auth');
-    navigate('/');
+    navigate('/login');
   };
 
   const value = { token, user, loggedIn, loggedOut, afterLoggedIn };

@@ -49,6 +49,7 @@ module.exports = {
         'main-bg': {
           DEFAULT: 'hsl(var(--main-bg))',
         },
+        danger: 'hsl(var(--danger-color))',
       },
       borderRadius: {
         lg: 'var(--radius)',

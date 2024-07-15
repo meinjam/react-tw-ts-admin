@@ -1,7 +1,7 @@
-import { FaChevronDown } from 'react-icons/fa6';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import ThemeSwitch from '@/components/theme/ThemeSwitch.Component';
 import Search from '@/components/theme/Search.Component';
+// import HeaderAuth from './HeaderAuth.Component';
+import HeaderAuth from '@/components/layouts/HeaderAuth.Component';
 
 const Header = () => {
   return (
@@ -30,21 +30,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className='cursor-pointer flex items-center gap-5'>
-            <Avatar className='size-12'>
-              <AvatarImage src='https://react-demo.tailadmin.com/assets/user-01-b007ff3f.png' />
-              <AvatarFallback>JD</AvatarFallback>
-            </Avatar>
-            <div className='flex items-center gap-6'>
-              <div className='text-foreground'>
-                <h5 className='text-sm font-normal'>John Doe</h5>
-                <p className='text-xs font-light'>UX Designer</p>
-              </div>
-              <div className='rounded-full border p-1'>
-                <FaChevronDown className='size-3' />
-              </div>
-            </div>
-          </div>
+          <HeaderAuth />
         </div>
       </div>
     </header>
