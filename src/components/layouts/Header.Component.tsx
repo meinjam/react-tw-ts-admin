@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <header className='sticky top-0 z-999 flex w-full bg-white dark:bg-p-dark drop-shadow duration-300'>
+    <header className='sticky top-0 z-999 flex w-full duration-300 border-b bg-background'>
       <div className='flex flex-grow items-center justify-between px-4 py-4 md:px-6 2xl:px-11'>
         <div className='border relative flex items-center h-12 rounded-lg bg-white overflow-hidden'>
           <div className='grid place-items-center h-full w-12 text-gray-300'>

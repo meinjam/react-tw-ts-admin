@@ -15,13 +15,13 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className='text-p-white absolute left-0 top-0 z-9999 flex h-screen w-72 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0 -translate-x-full'>
+    <aside className='absolute left-0 top-0 z-9999 flex h-screen w-72 flex-col overflow-y-hidden ease-linear lg:static lg:translate-x-0 -translate-x-full border-r-2 bg-background'>
       <div className='py-5 px-8'>
-        <Link to='/' className='text-3xl text-center block text-white'>
+        <Link to='/' className='text-3xl text-center block'>
           Admin Panel
         </Link>
       </div>
-      <div className='no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear'>
+      <div className='no-scrollbar flex flex-col overflow-y-auto ease-linear'>
         <nav className='mt-5 py-4 lg:mt-9'>
           <ul className='space-y-3'>
             {menus.super_admin.map((menu, i) => (
@@ -31,7 +31,7 @@ const Sidebar = () => {
                     {menu.icon}
                     <span>{menu.name}</span>
                     {menu.children.length > 0 && (
-                      <FaChevronDown className={cn('ml-auto duration-500', expandedMenus[i] ? 'rotate-180' : '')} />
+                      <FaChevronDown className={cn('ml-auto duration-300', expandedMenus[i] ? 'rotate-180' : '')} />
                     )}
                   </div>
                 ) : (
@@ -44,7 +44,7 @@ const Sidebar = () => {
                 {menu.children.length > 0 && (
                   <ul
                     className={cn(
-                      'pl-5 overflow-hidden transition-all duration-500 ease-in-out',
+                      'pl-5 overflow-hidden transition-all duration-300 ease-in-out',
                       expandedMenus[i] ? 'max-h-96' : 'max-h-0'
                     )}
                     // style={{ maxHeight: expandedMenus[i] ? '10rem' : '0' }}
