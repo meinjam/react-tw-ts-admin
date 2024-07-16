@@ -17,7 +17,7 @@ const HeaderAuth = () => {
 
   return (
     <>
-      <HoverCard openDelay={100} closeDelay={100} defaultOpen={true}>
+      <HoverCard openDelay={100} closeDelay={100} defaultOpen={false}>
         <HoverCardTrigger>
           <div className='cursor-pointer flex items-center gap-5'>
             <Avatar className='size-12'>

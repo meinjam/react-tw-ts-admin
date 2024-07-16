@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 
+// type Theme = 'dark' | 'light' | 'system';
+
 interface ThemeContextType {
   currentTheme: string | undefined;
   setCurrentTheme: React.Dispatch<React.SetStateAction<'dark' | 'light' | undefined>>;

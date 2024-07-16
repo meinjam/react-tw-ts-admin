@@ -10,19 +10,27 @@ const useAuthAndThemeCheck = () => {
   useEffect(() => {
     const localAuth = localStorage.getItem('auth');
     const localTheme = localStorage.getItem('theme');
+    const root = window.document.documentElement;
 
+    // auth functionality
     if (localAuth) {
       const auth = JSON.parse(localAuth);
-
       if (auth?.token && auth?.user) {
         loggedIn(auth?.token, auth?.user);
       }
     }
 
+    // theme functions
+    root.classList.remove('light', 'dark');
+
     if (localTheme) {
       const theme = JSON.parse(localTheme);
-      document.documentElement.classList.add(theme);
+      root.classList.add(theme);
       setCurrentTheme(theme);
+    } else {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.classList.add(systemTheme);
+      setCurrentTheme(systemTheme);
     }
 
     setAuthChecked(true);

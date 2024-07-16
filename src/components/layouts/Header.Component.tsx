@@ -10,7 +10,7 @@ const Header = () => {
         <Search />
 
         <div className='flex items-center gap-6 text-gray-600 dark:text-p-white'>
-          <div className='flex items-center gap-3'>
+          <div className='flex gap-3'>
             <div className='mr-5'>
               <ThemeSwitch />
             </div>
